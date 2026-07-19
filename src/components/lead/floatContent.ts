@@ -1,8 +1,8 @@
 export const floatAssets = {
-  phone: "/images/phone-float.png",
-  message: "/images/message-float.png",
-  form: "/images/form-float.png",
-  title: "/images/form-title.png",
+  phone: "/images/phone-float.webp",
+  message: "/images/message-float.webp",
+  form: "/images/form-float.webp",
+  title: "/images/form-title.webp",
 } as const;
 
 export const floatActions = {

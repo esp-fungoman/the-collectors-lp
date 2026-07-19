@@ -1,7 +1,7 @@
 /** Curatorial Practice — Figma tabs `2:174` + slides `2:166`. Fixed rem, no clamp. */
 
 export const culturalAssets = {
-  arrow: "/images/masterpiece/arrow-right.png",
+  arrow: "/images/masterpiece/arrow-right.webp",
 } as const;
 
 export const culturalCopy = {
@@ -19,7 +19,7 @@ export type CulturalTab = {
 function mansionImages(folder: string, count: number) {
   return Array.from({ length: count }, (_, i) => {
     const n = String(i + 1).padStart(2, "0");
-    return `/images/cultural/${folder}/${n}.jpg`;
+    return `/images/cultural/${folder}/${n}.webp`;
   });
 }
 

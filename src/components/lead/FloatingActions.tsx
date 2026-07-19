@@ -21,7 +21,7 @@ export function FloatingActions() {
 
   return (
     <>
-      <div className="fixed right-[0.75rem] bottom-[5.5rem] z-40 flex flex-col lg:right-[1.25rem] lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2">
+      <div className="fixed right-[0.75rem] bottom-[5.5rem] z-40 flex flex-col lg:right-[1.25rem] lg:top-5/7 lg:bottom-auto lg:-translate-y-1/2">
         <a
           href={floatActions.phoneHref}
           aria-label={floatActions.phoneLabel}

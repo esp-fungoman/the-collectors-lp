@@ -1,7 +1,7 @@
 /** Concept landscape carousel — Figma `2:268`. Fixed rem, no clamp. */
 
 export const conceptAssets = {
-  arrow: "/images/masterpiece/arrow-right.png",
+  arrow: "/images/masterpiece/arrow-right.webp",
 } as const;
 
 export const conceptCopy = {
@@ -15,7 +15,7 @@ export const conceptCopy = {
 export const conceptSlides = Array.from({ length: 5 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
   return {
-    src: `/images/concept/${n}.jpg`,
+    src: `/images/concept/${n}.webp`,
     alt: `Concept cảnh quan ${n}`,
   };
 });

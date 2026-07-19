@@ -74,7 +74,6 @@ export function LeadModal({ open, onClose }: LeadModalProps) {
             width={266}
             height={156}
             className="h-auto w-full"
-            priority
           />
         </div>
 
