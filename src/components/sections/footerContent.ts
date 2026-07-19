@@ -1,6 +1,6 @@
 export const footerAssets = {
-  bg: "/images/footer/footer-bg.svg",
-  address: "/images/footer/footer-address.svg",
+  bg: "/images/footer/footer-bg.webp",
+  address: "/images/footer/footer-address.webp",
 } as const;
 
 export const footerCopy = {

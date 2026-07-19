@@ -40,6 +40,7 @@ export function Hero() {
           alt=""
           fill
           priority
+          quality={75}
           className="object-cover object-top"
           sizes="100vw"
           aria-hidden

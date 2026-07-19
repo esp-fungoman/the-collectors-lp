@@ -1,8 +1,8 @@
 /** ValueProps section — Figma `2:116` + pins `2:125`…`2:146`. Fixed rem, no clamp. */
 
 export const valueAssets = {
-  bg: "/images/value/value-bg.png",
-  cardBg: "/images/hero/card-icons/cardbg.png",
+  bg: "/images/value/value-bg.webp",
+  cardBg: "/images/hero/card-icons/cardbg.webp",
 } as const;
 
 export const valueCopy = {
@@ -12,22 +12,22 @@ export const valueCopy = {
 
 export const valueItems = [
   {
-    icon: "/images/value/icon-1.png",
+    icon: "/images/value/icon-1.webp",
     title: ["58 đại trạch", "58 dấu ấn riêng"] as const,
     body: "Mỗi dinh thự được kiến tạo như một chữ ký độc bản",
   },
   {
-    icon: "/images/value/icon-2.png",
+    icon: "/images/value/icon-2.webp",
     title: ["Tầm nhìn khoáng đạt", "Ôm trọn mảng xanh"] as const,
     body: "Kề cận 7ha mặt hồ và 12 ha công viên hồ Hạc Cầm",
   },
   {
-    icon: "/images/value/icon-3.png",
+    icon: "/images/value/icon-3.webp",
     title: ["Không gian sống", "Là ưu tiên hàng đầu"] as const,
     body: "Mật độ sân vườn và cảnh quan lên đến 68%",
   },
   {
-    icon: "/images/value/icon-4.png",
+    icon: "/images/value/icon-4.webp",
     title: ["Cảnh quan theo", "Sở thích gia chủ"] as const,
     body: "Tặng gói thiết kế & thi công cảnh quan giá trị đến 2 tỷ đồng",
   },

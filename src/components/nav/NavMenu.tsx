@@ -39,7 +39,6 @@ export function NavMenu() {
             src={menuAssets.bg}
             alt=""
             fill
-            priority
             className="object-cover object-center"
             sizes="100vw"
             aria-hidden
@@ -94,7 +93,6 @@ export function NavMenu() {
                 fill
                 className="object-contain object-center"
                 sizes="305px"
-                priority
               />
             </motion.div>
 
@@ -143,7 +141,6 @@ export function NavMenu() {
                 fill
                 className="object-contain object-center"
                 sizes="12rem"
-                priority
               />
             </motion.div>
 

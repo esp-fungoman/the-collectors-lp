@@ -1,8 +1,8 @@
 /** Masterpiece coverflow — Figma `2:153` / track `2:158`. Fixed rem, no clamp. */
 
 export const masterpieceAssets = {
-  bg: "/images/masterpiece/masterpiece-bg.png",
-  arrow: "/images/masterpiece/arrow-right.png",
+  bg: "/images/masterpiece/masterpiece-bg.webp",
+  arrow: "/images/masterpiece/arrow-right.webp",
 } as const;
 
 export const masterpieceCopy = {
@@ -16,7 +16,7 @@ export const masterpieceCopy = {
 export const masterpieceSlides = Array.from({ length: 12 }, (_, i) => {
   const n = i + 1;
   return {
-    src: `/images/masterpiece/${n}.jpg`,
+    src: `/images/masterpiece/${n}.webp`,
     alt: `Tuyệt tác không gian ${n}`,
   };
 });

@@ -1,6 +1,6 @@
 export const menuAssets = {
-  bg: "/images/menu-bg.png",
-  logo: "/images/logo-big.svg",
+  bg: "/images/menu-bg.webp",
+  logo: "/images/logo-big.webp",
   close: "/images/menu-close.svg",
 } as const;
 

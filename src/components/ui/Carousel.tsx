@@ -47,7 +47,7 @@ const sideVariants = {
 export function Carousel({
   slides,
   className = "",
-  arrowSrc = "/images/masterpiece/arrow-right.png",
+  arrowSrc = "/images/masterpiece/arrow-right.webp",
   showConceptLabel = false,
   conceptLabel = "*Concept Design",
 }: CarouselProps) {

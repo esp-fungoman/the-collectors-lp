@@ -102,6 +102,8 @@ export function Ecosystem() {
             width={1272}
             height={633}
             className="h-full w-full object-contain object-left-top"
+            sizes="(max-width: 1024px) 100vw, 80vw"
+            quality={75}
             priority={false}
           />
         </motion.div>
@@ -128,6 +130,7 @@ export function Ecosystem() {
                 height={88}
                 className="object-contain"
                 style={{ width: map.timeW, height: map.timeH }}
+                sizes="300px"
               />
             </motion.div>
           ))}
