@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #fef5e2;
+  --color-ink: #140700;
+  --color-gold: #b8874f;
+  --color-gold-mid: #f8dca4;
+  --color-gold-end: #ce9e63;
+  --color-gold-border: #fdd598;
+  --color-forest: #1a3d32;
+  --color-forest-deep: #0f2a22;
+  --color-brown: #2a1a12;
+  --color-brown-deep: #1c1410;
+  --color-brown-muted: #3d2a1f;
+  --color-bronze: #6b3f24;
+
+  --layout-max: 90rem;
+  --layout-pad: 5rem;
+  --card-gap: 1.25rem;
+  --card-width: 19.0625rem;
+
+  --font-display: "SVN-Radiant Slender", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-montserrat), system-ui, sans-serif;
+
+  --background: var(--color-brown-deep);
+  --foreground: var(--color-cream);
+}
+
+@font-face {
+  font-family: "SVN-Radiant Slender";
+  src: url("/fonts/SVN-RadiantSlender.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-ink: var(--color-ink);
+  --color-gold: var(--color-gold);
+  --color-gold-mid: var(--color-gold-mid);
+  --color-gold-end: var(--color-gold-end);
+  --color-gold-border: var(--color-gold-border);
+  --color-forest: var(--color-forest);
+  --color-forest-deep: var(--color-forest-deep);
+  --color-brown: var(--color-brown);
+  --color-brown-deep: var(--color-brown-deep);
+  --color-brown-muted: var(--color-brown-muted);
+  --color-bronze: var(--color-bronze);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --spacing-layout-pad: var(--layout-pad);
+  --spacing-card-gap: var(--card-gap);
+  --container-page: var(--layout-max);
+  --container-card: var(--card-width);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-gold) 40%, transparent);
+  color: var(--color-cream);
+}
+
+/* Override Chrome autofill (UA uses background-color !important) */
+.lead-field:autofill,
+.lead-field:autofill:hover,
+.lead-field:autofill:focus,
+.lead-field:autofill:active,
+.lead-field:-webkit-autofill,
+.lead-field:-webkit-autofill:hover,
+.lead-field:-webkit-autofill:focus,
+.lead-field:-webkit-autofill:active,
+.lead-field:-internal-autofill-selected {
+  appearance: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  background-color: rgba(14, 45, 38, 0.8) !important;
+  background-image: none !important;
+  box-shadow: 0 0 0 1000px rgba(14, 45, 38, 0.8) inset !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(14, 45, 38, 0.8) inset !important;
+  transition: background-color 99999s ease-in-out 0s !important;
+  filter: none !important;
+}
+
+.lead-field--modal:autofill,
+.lead-field--modal:autofill:hover,
+.lead-field--modal:autofill:focus,
+.lead-field--modal:autofill:active,
+.lead-field--modal:-webkit-autofill,
+.lead-field--modal:-webkit-autofill:hover,
+.lead-field--modal:-webkit-autofill:focus,
+.lead-field--modal:-webkit-autofill:active,
+.lead-field--modal:-internal-autofill-selected {
+  background-color: rgba(20, 7, 0, 0.95) !important;
+  box-shadow: 0 0 0 1000px rgba(20, 7, 0, 0.95) inset !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(20, 7, 0, 0.95) inset !important;
+}
+
