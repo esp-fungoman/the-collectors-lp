@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  deploy:
+    uses: Eastplayers/cxgenie-devops/.github/workflows/ep-fe-pipeline.yml@main
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
+    with:
+      SERVICE_NAME: "lp"
+      PROJECT_NAME: "the-collectors"
+      ECR_SERVICE_NAME: "the-collectors-lp"
+      ECR_REGISTRY_ID: "914016532442"
+      AWS_ACCOUNT_ID: "914016532442"
