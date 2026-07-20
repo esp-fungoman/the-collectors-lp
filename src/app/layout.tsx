@@ -13,6 +13,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://the-collectors-lp-staging.up.railway.app",
+  ),
   title: "The Collectors | Đại trạch nội đô",
   description:
     "Bộ sưu tập 58 dinh thự độc bản tại Đông Tăng Long, Thành phố Thủ Đức.",
@@ -22,9 +26,9 @@ export const metadata: Metadata = {
       "Bộ sưu tập 58 dinh thự độc bản tại Đông Tăng Long, Thành phố Thủ Đức.",
     images: [
       {
-        url: "/meta-image.png",
-        width: 4800,
-        height: 2520,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "The Collectors' — Đại trạch nội đô, Sưu tầm tinh hiếm",
       },
     ],
@@ -34,7 +38,7 @@ export const metadata: Metadata = {
     title: "The Collectors | Đại trạch nội đô",
     description:
       "Bộ sưu tập 58 dinh thự độc bản tại Đông Tăng Long, Thành phố Thủ Đức.",
-    images: ["/meta-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
