@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { onSwipeEnd } from "@/lib/swipe";
 import { cultural } from "./culturalContent";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -31,6 +32,7 @@ type CulturalCarouselProps = {
   page: number;
   direction: number;
   alt: string;
+  onPaginate?: (dir: number) => void;
 };
 
 function wrap(index: number, length: number) {
@@ -65,6 +67,7 @@ export function CulturalCarousel({
   page,
   direction,
   alt,
+  onPaginate,
 }: CulturalCarouselProps) {
   const count = images.length;
   if (count === 0) {
@@ -103,27 +106,36 @@ export function CulturalCarousel({
       </div>
 
       <div
-        className="relative shrink-0 overflow-hidden"
+        className="relative shrink-0 touch-pan-y overflow-hidden"
         style={{ width: "var(--slide-w)", height: "var(--slide-h)" }}
       >
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={page}
-            className="absolute inset-0"
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
             custom={direction}
             variants={activeVariants}
             initial="enter"
             animate="center"
             exit="exit"
             transition={{ duration, ease }}
+            drag={onPaginate ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={
+              onPaginate
+                ? (_, info) => onSwipeEnd(info, onPaginate)
+                : undefined
+            }
           >
             <Image
               src={active}
               alt={`${alt} ${pad(index + 1)}`}
               fill
-              className="object-cover"
+              className="pointer-events-none object-cover"
               sizes="(max-width: 1024px) 100vw, 847px"
               priority
+              draggable={false}
             />
             <SlideBadge label={pad(index + 1)} />
           </motion.div>

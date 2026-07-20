@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useState, type CSSProperties } from "react";
+import { onSwipeEnd } from "@/lib/swipe";
 
 export type CarouselSlide = {
   src: string;
@@ -67,7 +68,7 @@ export function Carousel({
 
   return (
     <div
-      className={`relative w-full overflow-x-hidden [--active-w:calc(100vw-2.5rem)] [--active-h:14rem] [--side-w:0px] [--side-h:0px] [--slide-gap:0.75rem] [--arrow-w:4rem] [--arrow-h:2.25rem] lg:[--active-w:52.875rem] lg:[--active-h:26.4375rem] lg:[--side-w:37.5rem] lg:[--side-h:18.75rem] lg:[--slide-gap:1.25rem] lg:[--arrow-w:6.25rem] lg:[--arrow-h:3.5rem] ${className}`.trim()}
+      className={`relative w-full overflow-x-hidden [--active-w:calc(100vw-2.5rem)] [--active-h:22rem] [--side-w:0px] [--side-h:0px] [--slide-gap:0.75rem] [--arrow-w:4rem] [--arrow-h:2.25rem] md:[--active-h:36rem] lg:[--active-w:52.875rem] lg:[--active-h:26.4375rem] lg:[--side-w:37.5rem] lg:[--side-h:18.75rem] lg:[--slide-gap:1.25rem] lg:[--arrow-w:6.25rem] lg:[--arrow-h:3.5rem] ${className}`.trim()}
       role="region"
       aria-roledescription="carousel"
       aria-label="Tuyệt tác không gian"
@@ -92,29 +93,34 @@ export function Carousel({
       >
         <SideSlide slide={prevSlide} />
 
-        {/* Active image only — no arrows inside */}
+        {/* Active image — swipe left/right to change slides */}
         <div
-          className="relative shrink-0 overflow-hidden"
+          className="relative shrink-0 touch-pan-y overflow-hidden"
           style={{ width: "var(--active-w)", height: "var(--active-h)" }}
         >
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={page}
-              className="absolute inset-0"
+              className="absolute inset-0 cursor-grab active:cursor-grabbing"
               custom={direction}
               variants={activeVariants}
               initial="enter"
               animate="center"
               exit="exit"
               transition={{ duration, ease }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(_, info) => onSwipeEnd(info, paginate)}
             >
               <Image
                 src={activeSlide.src}
                 alt={activeSlide.alt}
                 fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 846px"
+                className="pointer-events-none object-cover"
+                sizes="(max-width: 1439px) 100vw, 846px"
                 priority
+                draggable={false}
               />
               {activeSlide.caption ? (
                 <p className="absolute bottom-4 left-0 right-0 px-4 text-center font-sans text-sm text-cream">
@@ -149,6 +155,28 @@ export function Carousel({
           onClick={() => paginate(1)}
           className="pointer-events-auto absolute top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
           style={{ left: "calc(50% + (var(--active-w) / 2) + 5.5rem)" }}
+        />
+      </div>
+
+      {/* Touch / tablet controls — desktop uses side arrows above */}
+      <div className="mt-4 flex items-center justify-center gap-6 px-5 lg:hidden">
+        <NavArrow
+          dir="prev"
+          arrowSrc={arrowSrc}
+          onClick={() => paginate(-1)}
+          className="pointer-events-auto relative shrink-0"
+        />
+        <p
+          className="font-sans text-sm font-medium tabular-nums text-cream"
+          aria-live="polite"
+        >
+          {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+        </p>
+        <NavArrow
+          dir="next"
+          arrowSrc={arrowSrc}
+          onClick={() => paginate(1)}
+          className="pointer-events-auto relative shrink-0"
         />
       </div>
     </div>

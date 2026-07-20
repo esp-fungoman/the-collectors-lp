@@ -76,7 +76,7 @@ export function Masterpiece() {
         <ContactCtaLink
           ctaName={ctaNames.masterpiece}
           href={masterpieceCopy.ctaHref}
-          className="inline-flex items-center justify-center border border-gold-border bg-gradient-to-r from-gold via-gold-mid via-[44.81%] to-gold-end font-sans font-bold uppercase leading-[1.4] text-ink transition hover:brightness-105"
+          className="inline-flex max-w-full items-center justify-center whitespace-normal border border-gold-border bg-gradient-to-r from-gold via-gold-mid via-[44.81%] to-gold-end text-center font-sans font-bold uppercase leading-[1.4] text-ink transition hover:brightness-105"
           style={{
             paddingLeft: masterpiece.ctaPadX,
             paddingRight: masterpiece.ctaPadX,

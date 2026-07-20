@@ -52,7 +52,7 @@ export function Hero() {
         <div className="flex flex-1 flex-col pt-[1.5rem] lg:pt-[2rem]">
           <HeroTitle />
           <HeroNetwork />
-          <div className="mt-[21.25rem] w-full">
+          <div className="mt-[2.5rem] w-full md:mt-[3.5rem] lg:mt-[21.25rem]">
             <HeroBanner />
             <HeroCards />
           </div>

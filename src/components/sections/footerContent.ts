@@ -1,5 +1,6 @@
 export const footerAssets = {
   bg: "/images/footer/footer-bg.webp",
+  bgMobile: "/images/footer/footer-bg-mobile.webp",
   address: "/images/footer/footer-address.webp",
 } as const;
 

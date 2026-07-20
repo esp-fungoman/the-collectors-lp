@@ -67,21 +67,33 @@ export const heroCards = [
   {
     title: "vị trí",
     icon: "/images/hero/card-icons/icon-vitri.webp",
-    body: "Khu Đô thị Đông Tăng Long, Phường Long Phước, TP. Hồ Chí Minh. 100m đến đường Liên Phường - liền kề Vành đai 3. 10ph đến Trung tâm Hành chính mới Thủ Thiêm.",
+    body: [
+      "Phường Long Phước, TP. Hồ Chí Minh",
+      "100m đến đường Liên Phường - liền kề Vành đai 3 - 10ph đến Trung tâm Hành chính mới Thủ Thiêm",
+    ] as const,
   },
   {
     title: "quy mô",
     icon: "/images/hero/card-icons/icon-quymo.webp",
-    body: "Giới hạn 58 đại trạch tinh hiếm. Diện tích đất sở hữu 600 -1.000m2 diện tích sàn xây dựng 900 -1.200m2.",
+    body: [
+      "Giới hạn 58 dinh thự",
+      "Diện tích đất sở hữu 600 -1.000m2, diện tích sàn xây dựng 900 -1.200m2",
+    ] as const,
   },
   {
     title: "tiện ích",
     icon: "/images/hero/card-icons/icon-tienich.webp",
-    body: "100% dinh thự sở hữu riêng hồ bơi tư gia 50m2 mặt nước và sân vườn riêng từ 300 - 600m2. Tầm nhìn xanh vĩnh viễn công viên và mặt nước hồ Hạc Cầm gần 20ha.",
+    body: [
+      "100% dinh thự sở hữu riêng hồ bơi tư gia 50m2 mặt nước và sân vườn riêng từ 338m² - 650m² mảng xanh với cảnh quan độc quyền",
+      "Tầm nhìn xanh vĩnh viễn công viên và mặt nước hồ Hạc Cầm gần 20ha",
+    ] as const,
   },
   {
     title: "bàn giao",
     icon: "/images/hero/card-icons/icon-bangiao.webp",
-    body: "Dinh thự xây thô hoàn thiện mặt ngoài. Pháp lý theo từng lô bàn giao khi hoàn công, sở hữu vĩnh viễn với người Việt Nam.",
+    body: [
+      "Dinh thự xây thô hoàn thiện mặt ngoài",
+      "Pháp lý theo từng lô bàn giao khi hoàn công, sở hữu vĩnh viễn với người Việt Nam",
+    ] as const,
   },
 ] as const;

@@ -47,7 +47,7 @@ export function CuratorialPractice() {
   return (
     <section
       id="curatorial"
-      className="relative z-10 w-full pt-16 pb-8 [--title-size:2.5rem] [--subtitle-size:1rem] [--tab-name:1.75rem] [--tab-tag:0.875rem] [--slide-w:100%] [--slide-h:16rem] [--peek-w:0rem] [--pad-x:1.25rem] lg:pt-38 lg:[--title-size:4rem] lg:[--subtitle-size:1.5rem] lg:[--tab-name:2rem] lg:[--tab-tag:1rem] lg:[--slide-w:52.9375rem] lg:[--slide-h:42.0625rem] lg:[--peek-w:12rem] lg:[--pad-x:5rem]"
+      className="relative z-10 w-full pt-32 pb-8 [--title-size:2.5rem] [--subtitle-size:1rem] [--tab-name:1.75rem] [--tab-tag:0.875rem] [--slide-w:100%] [--slide-h:22rem] [--peek-w:0rem] [--pad-x:1.25rem] md:[--slide-h:36rem] lg:pt-38 lg:[--title-size:4rem] lg:[--subtitle-size:1.5rem] lg:[--tab-name:2rem] lg:[--tab-tag:1rem] lg:[--slide-w:52.9375rem] lg:[--slide-h:42.0625rem] lg:[--peek-w:12rem] lg:[--pad-x:5rem]"
       style={{ paddingLeft: "var(--pad-x)", paddingRight: "var(--pad-x)" }}
     >
       <motion.div
@@ -91,7 +91,7 @@ export function CuratorialPractice() {
           style={{ gap: cultural.tabGap }}
         >
           <ul
-            className="flex flex-row gap-4 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0"
+            className="flex snap-x snap-mandatory flex-row gap-4 overflow-x-auto pb-2 pr-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:snap-none lg:flex-col lg:overflow-visible lg:pb-0 lg:pr-0 [&::-webkit-scrollbar]:hidden"
             style={{ gap: cultural.tabGap }}
           >
             {culturalTabs.map((tab) => {
@@ -100,7 +100,7 @@ export function CuratorialPractice() {
               const disabled = !hasImages;
 
               return (
-                <li key={tab.id} className="shrink-0 cursor-pointer">
+                <li key={tab.id} className="shrink-0 snap-start cursor-pointer">
                   <button
                     type="button"
                     disabled={disabled}
@@ -202,6 +202,7 @@ export function CuratorialPractice() {
             page={page}
             direction={direction}
             alt={activeTab.name}
+            onPaginate={paginate}
           />
 
           {/* Mobile progress under carousel */}

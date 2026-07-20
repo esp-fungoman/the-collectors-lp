@@ -9,7 +9,7 @@ import { hero } from "./tokens";
 export function HeroCards() {
   return (
     <motion.div
-      className="relative z-10 mx-auto w-full max-w-[90rem] px-5 pb-[3rem] pt-[2.5rem] lg:px-[var(--hero-pad-x)] lg:pb-[4rem] lg:pt-[3.5rem]"
+      className="relative z-10 mx-auto w-full max-w-[90rem] px-5 pb-[3rem] pt-[2.5rem] md:pt-[6rem] lg:px-[var(--hero-pad-x)] lg:pb-[4rem] lg:pt-[3.5rem]"
       style={{ "--hero-pad-x": hero.padX } as CSSProperties}
       initial="hidden"
       whileInView="show"
@@ -19,10 +19,7 @@ export function HeroCards() {
         show: { transition: { staggerChildren: 0.14 } },
       }}
     >
-      <div
-        className="grid grid-cols-1 justify-items-center gap-[1.25rem] md:grid-cols-2 lg:grid-cols-4 lg:justify-items-stretch"
-        style={{ columnGap: hero.cardGap, rowGap: hero.cardGap }}
-      >
+      <div className="mx-auto grid w-full max-w-[40rem] grid-cols-1 justify-items-center gap-[1.25rem] md:max-w-[44rem] md:grid-cols-2 md:gap-x-[2.5rem] md:gap-y-[2.5rem] lg:max-w-none lg:grid-cols-4 lg:justify-items-stretch lg:gap-[1.25rem]">
         {heroCards.map((card) => (
           <motion.article
             key={card.title}
@@ -89,7 +86,8 @@ export function HeroCards() {
                   letterSpacing: hero.cardBodyTracking,
                 }}
               >
-                {card.body}
+                <span className="block">{card.body[0]}</span>
+                <span className="block">{card.body[1]}</span>
               </p>
             </div>
           </motion.article>

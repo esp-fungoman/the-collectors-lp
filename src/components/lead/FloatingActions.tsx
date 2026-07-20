@@ -8,7 +8,7 @@ import { ctaNames } from "@/lib/leads/ctaNames";
 import { setLeadCtaSource } from "@/lib/leads/ctaSource";
 
 const iconBtnClass =
-  "relative block size-[4rem] shrink-0 overflow-hidden transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FDD598]";
+  "relative block size-[3.25rem] shrink-0 overflow-hidden transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FDD598] md:size-[4rem]";
 
 export function FloatingActions() {
   const [open, setOpen] = useState(false);
@@ -21,7 +21,7 @@ export function FloatingActions() {
 
   return (
     <>
-      <div className="fixed right-[0.75rem] bottom-[5.5rem] z-40 flex flex-col lg:right-[1.25rem] lg:top-5/7 lg:bottom-auto lg:-translate-y-1/2">
+      <div className="fixed right-[0.5rem] bottom-[1.25rem] z-40 flex flex-col md:right-[0.75rem] md:bottom-[5.5rem] lg:right-[1.25rem] lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2">
         <a
           href={floatActions.phoneHref}
           aria-label={floatActions.phoneLabel}

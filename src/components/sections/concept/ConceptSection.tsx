@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import { ContactCtaLink } from "@/components/lead/ContactCtaLink";
 import { Section } from "@/components/ui/Section";
 import { ctaNames } from "@/lib/leads/ctaNames";
+import { onSwipeEnd } from "@/lib/swipe";
 import {
   concept,
   conceptAssets,
@@ -41,9 +42,13 @@ export function ConceptSection() {
   const count = conceptSlides.length;
   const index = wrap(page, count);
 
-  const advance = useCallback(() => {
-    setPage(([p]) => [p + 1, 1]);
+  const paginate = useCallback((dir: number) => {
+    setPage(([p]) => [p + dir, dir]);
   }, []);
+
+  const advance = useCallback(() => {
+    paginate(1);
+  }, [paginate]);
 
   const active = conceptSlides[index];
   const peeks = [1, 2, 3, 4].map((offset) => conceptSlides[wrap(index + offset, count)]);
@@ -71,27 +76,32 @@ export function ConceptSection() {
       >
         {/* Active left */}
         <div
-          className="relative shrink-0 overflow-hidden"
+          className="relative shrink-0 touch-pan-y overflow-hidden"
           style={{ width: concept.activeW, height: concept.sectionH }}
         >
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={page}
-              className="absolute inset-0"
+              className="absolute inset-0 cursor-grab active:cursor-grabbing"
               custom={direction}
               variants={activeVariants}
               initial="enter"
               animate="center"
               exit="exit"
               transition={{ duration, ease }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(_, info) => onSwipeEnd(info, paginate)}
             >
               <Image
                 src={active.src}
                 alt={active.alt}
                 fill
-                className="object-cover"
+                className="pointer-events-none object-cover"
                 sizes="927px"
                 priority
+                draggable={false}
               />
             </motion.div>
           </AnimatePresence>
@@ -223,25 +233,30 @@ export function ConceptSection() {
 
       {/* Mobile */}
       <div className="flex w-full flex-col lg:hidden">
-        <div className="relative w-full overflow-hidden" style={{ height: "18rem" }}>
+        <div className="relative h-[22rem] w-full touch-pan-y overflow-hidden md:h-[36rem]">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={page}
-              className="absolute inset-0"
+              className="absolute inset-0 cursor-grab active:cursor-grabbing"
               custom={direction}
               variants={activeVariants}
               initial="enter"
               animate="center"
               exit="exit"
               transition={{ duration, ease }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(_, info) => onSwipeEnd(info, paginate)}
             >
               <Image
                 src={active.src}
                 alt={active.alt}
                 fill
-                className="object-cover"
+                className="pointer-events-none object-cover"
                 sizes="100vw"
                 priority
+                draggable={false}
               />
             </motion.div>
           </AnimatePresence>
@@ -284,11 +299,29 @@ export function ConceptSection() {
             <ContactCtaLink
               ctaName={ctaNames.concept}
               href={conceptCopy.ctaHref}
-              className="inline-flex border border-gold-border bg-gradient-to-r from-gold via-gold-mid via-[44.81%] to-gold-end px-4 py-3 font-sans text-sm font-bold uppercase text-ink"
+              className="inline-flex max-w-full whitespace-normal border border-gold-border bg-gradient-to-r from-gold via-gold-mid via-[44.81%] to-gold-end px-4 py-3 text-center font-sans text-sm font-bold uppercase text-ink"
             >
               {conceptCopy.cta}
             </ContactCtaLink>
           </div>
+
+          {/* Tablet: next arrow inside active slide */}
+          <button
+            type="button"
+            onClick={advance}
+            className="absolute bottom-4 right-4 z-20 hidden h-10 w-[4.5rem] md:block"
+            aria-label="Next concept image"
+          >
+            <span className="relative block h-full w-full">
+              <Image
+                src={conceptAssets.arrow}
+                alt=""
+                fill
+                className="object-contain"
+                aria-hidden
+              />
+            </span>
+          </button>
         </div>
 
         <div className="relative grid grid-cols-2">
@@ -306,10 +339,11 @@ export function ConceptSection() {
               <div className="absolute inset-0 bg-black/60" aria-hidden />
             </div>
           ))}
+          {/* Phone: arrow stays on peek grid */}
           <button
             type="button"
             onClick={advance}
-            className="absolute bottom-3 right-3 z-10 h-10 w-[4.5rem]"
+            className="absolute bottom-3 right-3 z-10 h-10 w-[4.5rem] md:hidden"
             aria-label="Next concept image"
           >
             <span className="relative block h-full w-full">

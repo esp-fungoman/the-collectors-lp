@@ -55,6 +55,10 @@
   --spacing-card-gap: var(--card-gap);
   --container-page: var(--layout-max);
   --container-card: var(--card-width);
+  /* Phone through iPad Mini (768): keep mobile layouts; tablet from 769+ */
+  --breakpoint-md: 769px;
+  /* Defer desktop artboard layouts past iPad Pro (1024) — Figma is 1440 */
+  --breakpoint-lg: 90rem;
 }
 
 html {

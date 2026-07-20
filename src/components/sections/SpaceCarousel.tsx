@@ -11,7 +11,8 @@ export function SpaceCarousel() {
     <Section
       id="space"
       reveal={false}
-      className="relative overflow-x-hidden overflow-y-visible pb-16 [--space-pad-top:2rem] lg:[--space-pad-top:15rem]"
+      className="relative overflow-x-hidden overflow-y-visible pb-16
+      [--space-pad-top:4rem] md:[--space-pad-top:8rem] lg:[--space-pad-top:15rem]"
       style={{ paddingTop: "var(--space-pad-top)" }}
     >
       <Image

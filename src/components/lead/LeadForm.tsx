@@ -4,9 +4,12 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { footerCopy } from "@/components/sections/footerContent";
 import {
+  LEAD_CTA_CHANGE_EVENT,
   clearLeadCtaSource,
+  getLeadCtaSource,
   resolveLeadCtaSource,
 } from "@/lib/leads/ctaSource";
+import { ctaNames } from "@/lib/leads/ctaNames";
 import { isLeadFormReady, leadSchema } from "@/lib/leads/schema";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -14,6 +17,7 @@ type Status = "idle" | "loading" | "success" | "error";
 type LeadFormProps = {
   className?: string;
   variant?: "footer" | "modal";
+  /** Locked source when form is opened from a known entry (e.g. float modal). */
   ctaName?: string;
   onSuccess?: () => void;
 };
@@ -45,17 +49,18 @@ export function LeadForm({
     variant === "modal" ? `${baseFieldClass} lead-field--modal` : baseFieldClass;
 
   useEffect(() => {
-    setButtonName(resolveLeadCtaSource(ctaName));
-  }, [ctaName]);
+    if (ctaName) {
+      setButtonName(resolveLeadCtaSource(ctaName));
+      return;
+    }
 
-  // Re-read sessionStorage when the footer form mounts / hash lands after a CTA click
-  useEffect(() => {
-    if (ctaName) return;
     const sync = () => setButtonName(resolveLeadCtaSource());
     sync();
+    window.addEventListener(LEAD_CTA_CHANGE_EVENT, sync);
     window.addEventListener("hashchange", sync);
     window.addEventListener("focus", sync);
     return () => {
+      window.removeEventListener(LEAD_CTA_CHANGE_EVENT, sync);
       window.removeEventListener("hashchange", sync);
       window.removeEventListener("focus", sync);
     };
@@ -79,7 +84,13 @@ export function LeadForm({
     e.preventDefault();
     setError(null);
 
-    const resolvedButton = resolveLeadCtaSource(ctaName ?? buttonName);
+    // Modal: locked prop. Footer: always re-read sessionStorage (never trust stale state).
+    const resolvedButton =
+      ctaName?.trim() ||
+      getLeadCtaSource()?.trim() ||
+      buttonName.trim() ||
+      ctaNames.footerForm;
+
     const parsed = leadSchema.safeParse({
       ...values,
       buttonName: resolvedButton,

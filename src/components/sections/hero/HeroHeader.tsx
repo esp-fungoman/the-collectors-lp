@@ -12,7 +12,7 @@ export function HeroHeader() {
 
   return (
     <motion.header
-      className="relative z-20 flex w-full items-center justify-between px-5 lg:h-[var(--hero-header-h)] lg:px-[var(--hero-pad-x)]"
+      className="relative z-20 flex w-full items-center justify-between px-5 lg:h-[var(--hero-header-h)] lg:px-[var(--hero-pad-x)] mt-4 lg:mt-0"
       style={
         {
           "--hero-header-h": hero.headerH,
@@ -23,7 +23,11 @@ export function HeroHeader() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <a href="/" className="relative block shrink-0" aria-label="The Collectors">
+      <a
+        href="/"
+        className="relative block shrink-0"
+        aria-label="The Collectors"
+      >
         <Image
           src={heroAssets.logo}
           alt="The Collectors"
