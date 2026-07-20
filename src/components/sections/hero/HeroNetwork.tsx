@@ -1,7 +1,6 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { networkIntro, networkItems } from "./content";
 import { hero } from "./tokens";
@@ -51,9 +50,8 @@ export function HeroNetwork() {
           variants={introVariants}
         >
           <p
-            className="font-sans font-medium uppercase"
+            className="font-sans font-medium uppercase text-[#F7DBA3] lg:text-[#6B3F24]"
             style={{
-              color: hero.networkLabelColor,
               fontSize: "var(--net-label)",
               letterSpacing: hero.networkLabelTracking,
               lineHeight: 1.5,
@@ -61,7 +59,7 @@ export function HeroNetwork() {
           >
             {networkIntro.eyebrow}
           </p>
-          <p className="mt-[0.25rem] font-[family-name:var(--font-display)] text-[1.5rem] uppercase leading-[1.25] text-bronze md:text-[1.625rem] lg:text-[2rem]">
+          <p className="mt-[0.25rem] font-[family-name:var(--font-display)] text-[1.5rem] uppercase leading-[1.25] text-[#F7DBA3] md:text-[1.625rem] lg:text-[2rem] lg:text-bronze">
             {networkIntro.title}
           </p>
         </motion.div>
@@ -82,23 +80,22 @@ export function HeroNetwork() {
                     : "w-full"
                 }`}
               >
-                <Image
-                  src={item.icon}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                  style={{
-                    width: "var(--net-icon)",
-                    height: "var(--net-icon)",
-                  }}
+                <span
+                  className="inline-block shrink-0 bg-[#F7DBA3] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] lg:bg-bronze"
+                  style={
+                    {
+                      width: "var(--net-icon)",
+                      height: "var(--net-icon)",
+                      maskImage: `url(${item.icon})`,
+                      WebkitMaskImage: `url(${item.icon})`,
+                    } as CSSProperties
+                  }
                   aria-hidden
                 />
                 <span
-                  className="flex h-[3rem] flex-col justify-start"
+                  className="flex h-[3rem] flex-col justify-start text-[#F7DBA3] lg:text-[#6B3F24]"
                   style={{
                     width: "var(--net-item-w)",
-                    color: hero.networkLabelColor,
                     fontFamily: "var(--font-body)",
                     fontSize: "var(--net-label)",
                     fontWeight: 500,

@@ -42,7 +42,7 @@ export const map = {
   /** 300×88 time clusters */
   timeW: "18.75rem",
   timeH: "5.5rem",
-  timeGap: "1.5rem",
+  timeGap: "2.5rem",
   timeTop: "41rem",
   ctaTop: "49rem",
   ctaPadX: "1rem",

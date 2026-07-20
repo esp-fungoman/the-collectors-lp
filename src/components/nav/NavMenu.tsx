@@ -39,7 +39,7 @@ export function NavMenu() {
             src={menuAssets.bg}
             alt=""
             fill
-            className="object-cover object-center"
+            className="object-cover object-[15%_40%] lg:object-center"
             sizes="100vw"
             aria-hidden
           />
@@ -128,9 +128,9 @@ export function NavMenu() {
           </div>
 
           {/* Mobile: flex-col stack */}
-          <div className="relative z-10 flex h-full flex-col items-center gap-[2.5rem] px-5 pb-[2.5rem] pt-[4.5rem] lg:hidden">
+          <div className="relative z-10 flex h-full flex-col items-start gap-[2.5rem] px-5 pb-[2.5rem] pt-[4.5rem] lg:hidden">
             <motion.div
-              className="relative h-[14rem] w-[12rem] shrink-0"
+              className="relative h-[10rem] w-[8rem] shrink-0"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.05 }}
@@ -140,12 +140,12 @@ export function NavMenu() {
                 alt="The Collectors"
                 fill
                 className="object-contain object-center"
-                sizes="12rem"
+                sizes="3rem"
               />
             </motion.div>
 
             <motion.nav
-              className="flex w-full flex-col items-center gap-[2.5rem]"
+              className="flex w-full flex-col items-start gap-[2.5rem]"
               aria-label="Liên kết chính"
               initial="hidden"
               animate="show"
@@ -161,7 +161,7 @@ export function NavMenu() {
                   key={item.href}
                   item={item}
                   isActive={index === 0}
-                  align="center"
+                  align="start"
                   onNavigate={() => setOpen(false)}
                 />
               ))}
@@ -181,16 +181,20 @@ function MenuLink({
 }: {
   item: (typeof menuLinks)[number];
   isActive: boolean;
-  align?: "end" | "center";
+  align?: "end" | "center" | "start";
   onNavigate: () => void;
 }) {
   const activeSize =
-    align === "center"
+    align === "center" || align === "start"
       ? menuTokens.activeSizeMobile
       : menuTokens.activeSize;
 
   const linkClassName = `group block font-[family-name:var(--font-display)] uppercase text-cream transition ${
-    align === "center" ? "text-center" : "text-right"
+    align === "center"
+      ? "text-center"
+      : align === "start"
+        ? "text-left"
+        : "text-right"
   } ${
     isActive
       ? "border-b border-cream"
@@ -205,7 +209,11 @@ function MenuLink({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, x: align === "center" ? 0 : 20, y: align === "center" ? 12 : 0 },
+        hidden: {
+          opacity: 0,
+          x: align === "center" || align === "start" ? 0 : 20,
+          y: align === "center" || align === "start" ? 12 : 0,
+        },
         show: {
           opacity: 1,
           x: 0,

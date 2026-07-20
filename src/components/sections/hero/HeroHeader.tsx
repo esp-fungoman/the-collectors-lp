@@ -12,7 +12,7 @@ export function HeroHeader() {
 
   return (
     <motion.header
-      className="relative z-20 flex w-full items-center justify-between px-5 lg:h-[var(--hero-header-h)] lg:px-[var(--hero-pad-x)] mt-4 lg:mt-0"
+      className="sticky top-0 z-30 flex w-full items-center justify-between px-5 lg:h-[var(--hero-header-h)] lg:px-[var(--hero-pad-x)] mt-4 lg:mt-0"
       style={
         {
           "--hero-header-h": hero.headerH,

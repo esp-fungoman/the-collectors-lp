@@ -69,7 +69,9 @@ export const heroCards = [
     icon: "/images/hero/card-icons/icon-vitri.webp",
     body: [
       "Phường Long Phước, TP. Hồ Chí Minh",
-      "100m đến đường Liên Phường - liền kề Vành đai 3 - 10ph đến Trung tâm Hành chính mới Thủ Thiêm",
+      "100m đến đường Liên Phường",
+      "Liền kề Vành đai 3",
+      "10ph đến Trung tâm Hành chính mới Thủ Thiêm",
     ] as const,
   },
   {
@@ -77,14 +79,16 @@ export const heroCards = [
     icon: "/images/hero/card-icons/icon-quymo.webp",
     body: [
       "Giới hạn 58 dinh thự",
-      "Diện tích đất sở hữu 600 -1.000m2, diện tích sàn xây dựng 900 -1.200m2",
+      "Diện tích đất sở hữu 600 -1.000m²",
+      "Diện tích sàn xây dựng 900 - 1.200m²",
     ] as const,
   },
   {
     title: "tiện ích",
     icon: "/images/hero/card-icons/icon-tienich.webp",
     body: [
-      "100% dinh thự sở hữu riêng hồ bơi tư gia 50m2 mặt nước và sân vườn riêng từ 338m² - 650m² mảng xanh với cảnh quan độc quyền",
+      "100% dinh thự sở hữu riêng hồ bơi tư gia",
+      "50m² mặt nước và sân vườn riêng từ 338m² - 650m² mảng xanh với cảnh quan độc quyền",
       "Tầm nhìn xanh vĩnh viễn công viên và mặt nước hồ Hạc Cầm gần 20ha",
     ] as const,
   },

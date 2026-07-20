@@ -62,8 +62,8 @@ function MapStage({
       <Image
         src={mapAssets.map}
         alt="Bản đồ vị trí The Collectors"
-        width={2500}
-        height={1500}
+        width={1087}
+        height={622}
         className={imageClassName}
         sizes={align === "left-top" ? "(max-width: 1024px) 100vw, 80vw" : "100vw"}
         unoptimized
@@ -79,7 +79,7 @@ export function Ecosystem() {
     <Section
       id="ecosystem"
       reveal={false}
-      className="overflow-hidden"
+      className="relative z-0 overflow-hidden"
       style={{ background: map.gradient }}
     >
       {/* Desktop */}
@@ -192,7 +192,7 @@ export function Ecosystem() {
         </motion.div>
 
         <motion.div
-          className="relative mt-6 w-full min-h-0 md:mt-0 md:flex-1 md:max-h-[48vh]"
+          className="relative mt-6 w-full min-h-0 md:mt-0 md:flex-1 md:max-h-[48vh] "
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.15 }}

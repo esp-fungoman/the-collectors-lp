@@ -114,7 +114,8 @@ body {
 
 /* Ecosystem map — light-beam (stroke dash), from thecollectors.vn map1 */
 .map-light-beam__line,
-.map-light-beam__line2 {
+.map-light-beam__line2,
+.map-light-beam__logo {
   fill: none;
   stroke-width: 4;
   stroke-linecap: round;
@@ -125,36 +126,64 @@ body {
 }
 
 .map-light-beam__line {
-  stroke-dasharray: 500 2000;
-  animation: map-light-beam 4s infinite linear;
+  stroke-dasharray: 120 900;
+  animation: map-light-beam 3.5s infinite linear;
 }
 
 .map-light-beam__line2 {
-  stroke-dasharray: 150 1000;
-  animation: map-light-beam-2 3s infinite linear;
+  stroke-dasharray: 80 600;
+  animation: map-light-beam-2 2.8s infinite linear;
+}
+
+/* Center logo — amber; motion driven by WAAPI in MapLightBeam (full closed loop) */
+.map-light-beam__logo {
+  stroke: #ffc107;
+  filter:
+    drop-shadow(0 0 4px rgba(255, 193, 7, 0.85))
+    drop-shadow(0 0 10px rgba(255, 193, 7, 0.4));
+}
+
+/* Static full lines — for OFFSET_X / OFFSET_Y alignment (toggle via MapLightBeam STATIC_ALIGN) */
+.map-light-beam--static .map-light-beam__line,
+.map-light-beam--static .map-light-beam__line2,
+.map-light-beam--static .map-light-beam__logo {
+  animation: none;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 0.95;
+}
+
+.map-light-beam--static .map-light-beam__line,
+.map-light-beam--static .map-light-beam__line2 {
+  stroke: #ff6f40;
+}
+
+.map-light-beam--static .map-light-beam__logo {
+  stroke: #ffc107;
 }
 
 @keyframes map-light-beam {
   0% {
-    stroke-dashoffset: 2000;
+    stroke-dashoffset: 900;
   }
   100% {
-    stroke-dashoffset: -550;
+    stroke-dashoffset: -120;
   }
 }
 
 @keyframes map-light-beam-2 {
   0% {
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 600;
   }
   100% {
-    stroke-dashoffset: -200;
+    stroke-dashoffset: -80;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .map-light-beam__line,
-  .map-light-beam__line2 {
+  .map-light-beam__line2,
+  .map-light-beam__logo {
     animation: none;
     stroke-dasharray: none;
     stroke-dashoffset: 0;

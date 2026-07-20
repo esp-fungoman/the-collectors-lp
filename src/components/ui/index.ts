@@ -7,5 +7,6 @@ export { Section } from "./Section";
 export { Icon } from "./Icon";
 export { Reveal } from "./Reveal";
 export { Carousel } from "./Carousel";
+export { ConceptDesignLabel } from "./ConceptDesignLabel";
 export type { CarouselSlide } from "./Carousel";
 export type { TextVariant } from "./Text";

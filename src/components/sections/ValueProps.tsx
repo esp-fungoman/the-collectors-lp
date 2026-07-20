@@ -11,10 +11,10 @@ export function ValueProps() {
     <Section
       id="value"
       reveal={false}
-      className="relative z-10 overflow-x-hidden overflow-y-visible [--title-size:2.5rem] [--subtitle-size:1rem] [--title-mt:0rem] [--pin-size:min(17rem,85vw)] [--pin-gap-x:0.5rem] [--pin-gap-y:1.5rem] [--pin-overlap:0rem] [--icon-size:3.5rem] [--icon-top:1.5rem] [--item-font:0.9375rem] [--item-pad-x:1.75rem] [--pad-x:1.25rem] md:[--pin-size:14rem] md:[--pin-gap-y:2rem] md:[--icon-size:3.5rem] md:[--icon-top:1.25rem] md:[--item-font:0.9375rem] md:[--item-pad-x:1.25rem] lg:[--title-size:4rem] lg:[--subtitle-size:1.5rem] lg:[--title-mt:3.5rem] lg:[--pin-size:19.0625rem] lg:[--pin-gap-x:1.25rem] lg:[--pin-gap-y:1.25rem] lg:[--pin-overlap:-9.5625rem] lg:[--icon-size:5rem] lg:[--icon-top:1.75rem] lg:[--item-font:1.125rem] lg:[--item-pad-x:1.75rem] lg:[--pad-x:5rem]"
+      className="relative z-10 overflow-visible [--title-size:2.5rem] [--subtitle-size:1rem] [--title-mt:0rem] [--pin-size:min(17rem,85vw)] [--pin-gap-x:0.5rem] [--pin-gap-y:1.5rem] [--pin-overlap:0rem] [--icon-size:3.5rem] [--icon-top:1.5rem] [--item-font:0.9375rem] [--item-pad-x:1.75rem] [--pad-x:1.25rem] md:[--pin-size:14rem] md:[--pin-gap-y:2rem] md:[--icon-size:3.5rem] md:[--icon-top:1.25rem] md:[--item-font:0.9375rem] md:[--item-pad-x:1.25rem] lg:[--title-size:4rem] lg:[--subtitle-size:1.5rem] lg:[--title-mt:3.5rem] lg:[--pin-size:19.0625rem] lg:[--pin-gap-x:1.25rem] lg:[--pin-gap-y:1.25rem] lg:[--pin-overlap:-9.5625rem] lg:[--icon-size:5rem] lg:[--icon-top:1.75rem] lg:[--item-font:1.125rem] lg:[--item-pad-x:1.75rem] lg:[--pad-x:5rem]"
     >
       <div
-        className="relative mx-auto flex w-full max-w-[90rem] flex-col items-center"
+        className="relative mx-auto flex w-full max-w-[90rem] flex-col items-center  pb-[3rem] lg:pb-[0]"
         style={{
           minHeight: value.sectionMinH,
           paddingLeft: "var(--pad-x)",

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useState, type CSSProperties } from "react";
 import { onSwipeEnd } from "@/lib/swipe";
+import { ConceptDesignLabel } from "./ConceptDesignLabel";
 
 export type CarouselSlide = {
   src: string;
@@ -49,7 +50,7 @@ export function Carousel({
   slides,
   className = "",
   arrowSrc = "/images/masterpiece/arrow-right.webp",
-  showConceptLabel = false,
+  showConceptLabel = true,
   conceptLabel = "*Concept Design",
 }: CarouselProps) {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -68,7 +69,7 @@ export function Carousel({
 
   return (
     <div
-      className={`relative w-full overflow-x-hidden [--active-w:calc(100vw-2.5rem)] [--active-h:22rem] [--side-w:0px] [--side-h:0px] [--slide-gap:0.75rem] [--arrow-w:4rem] [--arrow-h:2.25rem] md:[--active-h:36rem] lg:[--active-w:52.875rem] lg:[--active-h:26.4375rem] lg:[--side-w:37.5rem] lg:[--side-h:18.75rem] lg:[--slide-gap:1.25rem] lg:[--arrow-w:6.25rem] lg:[--arrow-h:3.5rem] ${className}`.trim()}
+      className={`relative w-full overflow-x-hidden [--active-w:calc(100vw-2.5rem)] [--side-w:0px] [--side-h:0px] [--slide-gap:0.75rem] [--arrow-w:4rem] [--arrow-h:2.25rem] lg:[--active-w:52.875rem] lg:[--active-h:26.4375rem] lg:[--side-w:37.5rem] lg:[--side-h:18.75rem] lg:[--slide-gap:1.25rem] lg:[--arrow-w:6.25rem] lg:[--arrow-h:3.5rem] ${className}`.trim()}
       role="region"
       aria-roledescription="carousel"
       aria-label="Tuyệt tác không gian"
@@ -88,16 +89,13 @@ export function Carousel({
       </div>
 
       <div
-        className="relative flex items-center justify-center"
-        style={{ gap: "var(--slide-gap)", minHeight: "var(--active-h)" }}
+        className="relative flex items-center justify-center lg:min-h-[var(--active-h)]"
+        style={{ gap: "var(--slide-gap)" }}
       >
         <SideSlide slide={prevSlide} />
 
         {/* Active image — swipe left/right to change slides */}
-        <div
-          className="relative shrink-0 touch-pan-y overflow-hidden"
-          style={{ width: "var(--active-w)", height: "var(--active-h)" }}
-        >
+        <div className="relative aspect-[16/9] w-[var(--active-w)] shrink-0 touch-pan-y overflow-hidden lg:aspect-auto lg:h-[var(--active-h)]">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={page}
@@ -128,12 +126,7 @@ export function Carousel({
                 </p>
               ) : null}
               {showConceptLabel ? (
-                <p
-                  className="pointer-events-none absolute bottom-2 right-4 font-sans text-[0.75rem] leading-[1.4] text-white"
-                  style={{ opacity: 0.2 }}
-                >
-                  {conceptLabel}
-                </p>
+                <ConceptDesignLabel label={conceptLabel} />
               ) : null}
             </motion.div>
           </AnimatePresence>
@@ -208,6 +201,7 @@ function SideSlide({ slide }: { slide: CarouselSlide }) {
             sizes="600px"
           />
           <div className="absolute inset-0 bg-black/60" />
+          <ConceptDesignLabel />
         </motion.div>
       </AnimatePresence>
     </div>

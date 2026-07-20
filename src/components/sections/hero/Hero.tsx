@@ -17,7 +17,7 @@ export function Hero() {
     <Section
       id="hero"
       reveal={false}
-      className="relative isolate min-h-screen overflow-hidden lg:min-h-[var(--hero-artboard-h)]"
+      className="relative isolate min-h-screen lg:min-h-[var(--hero-artboard-h)]"
       style={
         {
           "--hero-artboard-h": hero.artboardH,
@@ -25,7 +25,7 @@ export function Hero() {
       }
     >
       <motion.div
-        className="absolute inset-0 -z-10 origin-top"
+        className="absolute inset-0 -z-10 origin-top overflow-hidden"
         initial={{ scale: 1 }}
         animate={{ scale: 1.03 }}
         transition={{

@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { ConceptDesignLabel } from "@/components/ui/ConceptDesignLabel";
 import { onSwipeEnd } from "@/lib/swipe";
 import { cultural } from "./culturalContent";
 
@@ -92,8 +93,8 @@ export function CulturalCarousel({
 
   return (
     <div
-      className="relative flex w-full items-stretch"
-      style={{ gap: cultural.slideGap, minHeight: "var(--slide-h)" }}
+      className="relative flex w-full items-stretch lg:min-h-[var(--slide-h)]"
+      style={{ gap: cultural.slideGap }}
     >
       {/* Prefetch neighbors so motion isn’t blocked by decode */}
       <div
@@ -105,10 +106,7 @@ export function CulturalCarousel({
         <Image src={images[wrap(index - 1, count)]} alt="" width={1} height={1} />
       </div>
 
-      <div
-        className="relative shrink-0 touch-pan-y overflow-hidden"
-        style={{ width: "var(--slide-w)", height: "var(--slide-h)" }}
-      >
+      <div className="relative aspect-[16/9] w-[var(--slide-w)] shrink-0 touch-pan-y overflow-hidden lg:aspect-auto lg:h-[var(--slide-h)]">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={page}
@@ -138,6 +136,7 @@ export function CulturalCarousel({
               draggable={false}
             />
             <SlideBadge label={pad(index + 1)} />
+            <ConceptDesignLabel />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -163,6 +162,7 @@ export function CulturalCarousel({
           />
         </AnimatePresence>
         <SlideBadge label={pad(wrap(index + 1, count) + 1)} />
+        <ConceptDesignLabel />
       </div>
     </div>
   );

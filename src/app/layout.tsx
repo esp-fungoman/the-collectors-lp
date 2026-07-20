@@ -16,6 +16,26 @@ export const metadata: Metadata = {
   title: "The Collectors | Đại trạch nội đô",
   description:
     "Bộ sưu tập 58 dinh thự độc bản tại Đông Tăng Long, Thành phố Thủ Đức.",
+  openGraph: {
+    title: "The Collectors | Đại trạch nội đô",
+    description:
+      "Bộ sưu tập 58 dinh thự độc bản tại Đông Tăng Long, Thành phố Thủ Đức.",
+    images: [
+      {
+        url: "/meta-image.png",
+        width: 4800,
+        height: 2520,
+        alt: "The Collectors' — Đại trạch nội đô, Sưu tầm tinh hiếm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Collectors | Đại trạch nội đô",
+    description:
+      "Bộ sưu tập 58 dinh thự độc bản tại Đông Tăng Long, Thành phố Thủ Đức.",
+    images: ["/meta-image.png"],
+  },
 };
 
 export default function RootLayout({

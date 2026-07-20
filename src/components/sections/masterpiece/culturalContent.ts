@@ -40,19 +40,19 @@ export const culturalTabs: readonly CulturalTab[] = [
     id: "regency",
     name: "Regency Mansion",
     tagline: "Trưởng dòng tổ trạch",
-    images: [],
+    images: mansionImages("regency-mansion", 7),
   },
   {
     id: "galleria",
     name: "Galleria Mansion",
     tagline: "Tinh hoa mỹ học",
-    images: [],
+    images: mansionImages("galleria-mansion", 7),
   },
   {
     id: "riviera",
     name: "Riviera Mansion",
     tagline: "Tạo nhân phong vị",
-    images: [],
+    images: mansionImages("riveria-mension", 8),
   },
 ] as const;
 

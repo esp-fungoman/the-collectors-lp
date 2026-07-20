@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import { LeadForm } from "@/components/lead/LeadForm";
 import { floatActions, floatAssets } from "@/components/lead/floatContent";
 import { ctaNames } from "@/lib/leads/ctaNames";
@@ -68,7 +67,8 @@ export function LeadModal({ open, onClose }: LeadModalProps) {
         </button>
 
         <div className="mx-auto mb-[2rem] w-[min(16.625rem,100%)]">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={floatAssets.title}
             alt="Khám phá bộ sưu tập 58 dinh thự tinh hiếm"
             width={266}

@@ -5,10 +5,10 @@ export const menuAssets = {
 } as const;
 
 export const menuLinks = [
-  { label: "Tổng quan dự án", href: "#hero" },
+  { label: "Tổng quan dự án", href: "#overview" },
   { label: "Vị trí", href: "#ecosystem" },
   { label: "Đặc quyền", href: "#value" },
-  { label: "Concept", href: "#space" },
+  { label: "Concept", href: "#curatorial" },
   { label: "Thông tin liên hệ", href: "#contact" },
 ] as const;
 
@@ -41,7 +41,7 @@ export const menuTokens = {
   closeIcon: "2.5rem",
   closeHit: "3.5rem",
   activeSize: "3rem",
-  activeSizeMobile: "2.5rem",
+  activeSizeMobile: "2.25rem",
   itemSize: "1.75rem",
   lineHeight: 1.1,
 } as const;

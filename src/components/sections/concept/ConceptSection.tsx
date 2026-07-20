@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 import { ContactCtaLink } from "@/components/lead/ContactCtaLink";
+import { ConceptDesignLabel } from "@/components/ui/ConceptDesignLabel";
 import { Section } from "@/components/ui/Section";
 import { ctaNames } from "@/lib/leads/ctaNames";
 import { onSwipeEnd } from "@/lib/swipe";
@@ -103,15 +104,9 @@ export function ConceptSection() {
                 priority
                 draggable={false}
               />
+              <ConceptDesignLabel />
             </motion.div>
           </AnimatePresence>
-
-          <p
-            className="pointer-events-none absolute right-[5rem] top-8 z-10 font-sans text-[0.75rem] leading-[1.4] text-white"
-            style={{ opacity: 0.2 }}
-          >
-            {conceptCopy.conceptLabel}
-          </p>
 
           <div
             className="pointer-events-none absolute inset-x-0 bottom-0 z-[1]"
@@ -203,6 +198,7 @@ export function ConceptSection() {
                 />
               </AnimatePresence>
               <div className="absolute inset-0 bg-black/60" aria-hidden />
+              <ConceptDesignLabel />
             </div>
           ))}
 
@@ -233,7 +229,7 @@ export function ConceptSection() {
 
       {/* Mobile */}
       <div className="flex w-full flex-col lg:hidden">
-        <div className="relative h-[22rem] w-full touch-pan-y overflow-hidden md:h-[36rem]">
+        <div className="relative aspect-[16/9] w-full touch-pan-y overflow-hidden">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={page}
@@ -258,6 +254,7 @@ export function ConceptSection() {
                 priority
                 draggable={false}
               />
+              <ConceptDesignLabel />
             </motion.div>
           </AnimatePresence>
 
@@ -333,10 +330,11 @@ export function ConceptSection() {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: `url(${slide.src}) lightgray 50% / cover no-repeat`,
+                  background: `url(${slide.src}) lightgray 50% / contain no-repeat`,
                 }}
               />
               <div className="absolute inset-0 bg-black/60" aria-hidden />
+              <ConceptDesignLabel />
             </div>
           ))}
           {/* Phone: arrow stays on peek grid */}
