@@ -1,7 +1,7 @@
 /** Map / Ecosystem section — Figma px → rem (root 16). */
 
 export const mapAssets = {
-  map: "/images/map/map-1.svg",
+  map: "/images/map/map.svg",
   times: [
     "/images/map/time-1.png",
     "/images/map/time-2.png",
