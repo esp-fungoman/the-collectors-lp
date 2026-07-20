@@ -3,9 +3,9 @@
 export const mapAssets = {
   map: "/images/map/map-1.svg",
   times: [
-    "/images/map/time-1.webp",
-    "/images/map/time-2.webp",
-    "/images/map/time-3.webp",
+    "/images/map/time-1.png",
+    "/images/map/time-2.png",
+    "/images/map/time-3.png",
   ] as const,
 } as const;
 

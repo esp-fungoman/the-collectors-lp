@@ -1,7 +1,7 @@
 /** Masterpiece coverflow — Figma `2:153` / track `2:158`. Fixed rem, no clamp. */
 
 export const masterpieceAssets = {
-  bg: "/images/masterpiece/masterpiece-bg.webp",
+  bg: "/images/masterpiece/masterpiece-bg.png",
   arrow: "/images/masterpiece/arrow-right.webp",
 } as const;
 

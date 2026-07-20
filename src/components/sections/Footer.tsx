@@ -57,20 +57,13 @@ export function Footer() {
         {/* Form — phone lower flow; tablet right; desktop Figma */}
         <div className="relative z-[2] mx-[1.125rem] mt-auto mb-[5.5rem] flex w-auto max-w-full flex-col self-stretch border border-[#FDD598] bg-[rgba(14,45,38,0.8)] px-[1.5rem] pb-[2rem] pt-[1.75rem] md:absolute md:top-1/2 md:right-[1.25rem] md:left-auto md:mx-0 md:mt-0 md:mb-0 md:h-auto md:max-h-[calc(100%-2rem)] md:w-[min(22rem,48%)] md:max-w-none md:-translate-y-1/2 md:self-auto md:overflow-y-auto md:px-[1.25rem] md:py-[1.25rem] lg:left-[52.375rem] lg:right-auto lg:h-[36.25rem] lg:w-[32.625rem] lg:max-h-none lg:overflow-visible lg:px-[2.5rem] lg:pb-[2.5rem] lg:pt-[2.1875rem] xl:left-[calc(50%-45rem+52.375rem)]">
           <header className="mb-[2rem] flex flex-col items-center text-center md:mb-[1.25rem]">
-            <p className="font-sans text-[0.875rem] font-medium uppercase tracking-[0.04em] text-white">
-              {footerCopy.formEyebrowTop}
-            </p>
-            <p className="mt-[0.15rem] font-sans text-[0.75rem] font-medium uppercase tracking-[0.12em] text-[#FDD598]">
-              {footerCopy.formEyebrowBottom}
-            </p>
-            <div className="mt-[0.75rem] flex items-center gap-[0.75rem]">
-              <span className="font-display text-[3rem] font-normal leading-none text-[#FDD598] lg:text-[3.625rem]">
-                {footerCopy.formHighlight}
-              </span>
-              <span className="max-w-[6.5rem] text-left font-display text-[1rem] font-normal leading-[1.2] uppercase text-[#FDD598] lg:text-[1.125rem]">
-                {footerCopy.formTitle}
-              </span>
-            </div>
+            <Image
+              src={footerAssets.title}
+              alt="Khám phá bộ sưu tập 58 dinh thự tinh hiếm"
+              width={1064}
+              height={624}
+              className="h-auto w-full max-w-[16.625rem]"
+            />
           </header>
 
           <LeadForm />

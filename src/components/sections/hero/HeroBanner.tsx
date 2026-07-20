@@ -122,7 +122,7 @@ export function HeroBanner() {
   const [stat1, stat2, stat3] = bannerStats;
 
   return (
-    <div className="relative z-10 mt-[2rem] w-full md:mt-[16rem] lg:mt-[3.5rem]">
+    <div className="relative z-10 mt-[2rem] w-full overflow-x-hidden md:mt-[16rem] lg:mt-[3.5rem]">
       <motion.div
         className="relative mx-auto h-auto min-h-0 w-full overflow-hidden md:h-[10rem] md:min-h-0 lg:h-[10rem]"
         initial="hidden"

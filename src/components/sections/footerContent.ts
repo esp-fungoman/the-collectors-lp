@@ -2,6 +2,7 @@ export const footerAssets = {
   bg: "/images/footer/footer-bg.webp",
   bgMobile: "/images/footer/footer-bg-mobile.webp",
   address: "/images/footer/footer-address.webp",
+  title: "/images/footer/footer-title.png",
 } as const;
 
 export const footerCopy = {

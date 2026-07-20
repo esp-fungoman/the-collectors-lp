@@ -46,7 +46,9 @@ export function LeadForm({
 
   const canSubmit = isLeadFormReady(values) && status !== "loading";
   const fieldClass =
-    variant === "modal" ? `${baseFieldClass} lead-field--modal` : baseFieldClass;
+    variant === "modal"
+      ? `${baseFieldClass} lead-field--modal`
+      : baseFieldClass;
 
   useEffect(() => {
     if (ctaName) {

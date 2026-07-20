@@ -50,7 +50,7 @@ export function HeroNetwork() {
           variants={introVariants}
         >
           <p
-            className="font-sans font-medium uppercase text-[#F7DBA3] lg:text-[#6B3F24]"
+            className="font-sans font-medium uppercase text-[#F7DBA3] md:text-[#6B3F24]"
             style={{
               fontSize: "var(--net-label)",
               letterSpacing: hero.networkLabelTracking,
@@ -59,7 +59,7 @@ export function HeroNetwork() {
           >
             {networkIntro.eyebrow}
           </p>
-          <p className="mt-[0.25rem] font-[family-name:var(--font-display)] text-[1.5rem] uppercase leading-[1.25] text-[#F7DBA3] md:text-[1.625rem] lg:text-[2rem] lg:text-bronze">
+          <p className="mt-[0.25rem] font-[family-name:var(--font-display)] text-[1.5rem] uppercase leading-[1.25] text-[#F7DBA3] md:text-[1.625rem] md:text-bronze lg:text-[2rem]">
             {networkIntro.title}
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export function HeroNetwork() {
                 }`}
               >
                 <span
-                  className="inline-block shrink-0 bg-[#F7DBA3] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] lg:bg-bronze"
+                  className="inline-block shrink-0 bg-[#F7DBA3] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] md:bg-bronze"
                   style={
                     {
                       width: "var(--net-icon)",
@@ -93,7 +93,7 @@ export function HeroNetwork() {
                   aria-hidden
                 />
                 <span
-                  className="flex h-[3rem] flex-col justify-start text-[#F7DBA3] lg:text-[#6B3F24]"
+                  className="flex h-[3rem] flex-col justify-start text-[#F7DBA3] md:text-[#6B3F24]"
                   style={{
                     width: "var(--net-item-w)",
                     fontFamily: "var(--font-body)",

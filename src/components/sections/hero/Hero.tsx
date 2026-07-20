@@ -24,35 +24,37 @@ export function Hero() {
         } as CSSProperties
       }
     >
-      <motion.div
-        className="absolute inset-0 -z-10 origin-top overflow-hidden"
-        initial={{ scale: 1 }}
-        animate={{ scale: 1.03 }}
-        transition={{
-          duration: 20,
-          ease: "linear",
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-      >
-        <Image
-          src={heroAssets.bg}
-          alt=""
-          fill
-          priority
-          quality={75}
-          className="object-cover object-top"
-          sizes="100vw"
-          aria-hidden
-        />
-      </motion.div>
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 origin-top"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        >
+          <Image
+            src={heroAssets.bg}
+            alt=""
+            fill
+            priority
+            quality={75}
+            className="object-cover object-top"
+            sizes="100vw"
+            aria-hidden
+          />
+        </motion.div>
+      </div>
 
       <div className="relative flex min-h-[inherit] w-full flex-col">
         <HeroHeader />
         <div className="flex flex-1 flex-col pt-[1.5rem] lg:pt-[2rem]">
           <HeroTitle />
           <HeroNetwork />
-          <div className="mt-[2.5rem] w-full md:mt-[3.5rem] lg:mt-[21.25rem]">
+          <div className="mt-[2.5rem] w-full overflow-x-hidden md:mt-[3.5rem] lg:mt-[21.25rem]">
             <HeroBanner />
             <HeroCards />
           </div>

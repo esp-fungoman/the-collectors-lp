@@ -11,20 +11,21 @@ export function SpaceCarousel() {
     <Section
       id="space"
       reveal={false}
-      className="relative overflow-x-hidden overflow-y-visible pb-16
+      className="relative overflow-hidden pb-16
       [--space-pad-top:4rem] md:[--space-pad-top:8rem] lg:[--space-pad-top:15rem]"
       style={{ paddingTop: "var(--space-pad-top)" }}
     >
-      <Image
-        src={masterpieceAssets.bg}
-        alt=""
-        fill
-        className="pointer-events-none object-cover object-top"
-        sizes="100vw"
-        aria-hidden
-        priority={false}
-      />
-
+      {/* Full-bleed bg — stretch on mobile so both Masterpiece + Curatorial are covered */}
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <Image
+          src={masterpieceAssets.bg}
+          alt=""
+          fill
+          className="object-fill object-top lg:object-cover"
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
       <div className="relative z-10 flex w-full flex-col">
         <Masterpiece />
         <CuratorialPractice />

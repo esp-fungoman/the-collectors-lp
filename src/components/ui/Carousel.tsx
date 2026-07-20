@@ -69,7 +69,7 @@ export function Carousel({
 
   return (
     <div
-      className={`relative w-full overflow-x-hidden [--active-w:calc(100vw-2.5rem)] [--side-w:0px] [--side-h:0px] [--slide-gap:0.75rem] [--arrow-w:4rem] [--arrow-h:2.25rem] lg:[--active-w:52.875rem] lg:[--active-h:26.4375rem] lg:[--side-w:37.5rem] lg:[--side-h:18.75rem] lg:[--slide-gap:1.25rem] lg:[--arrow-w:6.25rem] lg:[--arrow-h:3.5rem] ${className}`.trim()}
+      className={`relative w-full overflow-hidden [--active-w:calc(100vw-2.5rem)] [--side-w:0px] [--side-h:0px] [--slide-gap:0.75rem] [--arrow-w:4rem] [--arrow-h:2.25rem] lg:[--active-w:52.875rem] lg:[--active-h:26.4375rem] lg:[--side-w:37.5rem] lg:[--side-h:18.75rem] lg:[--slide-gap:1.25rem] lg:[--arrow-w:6.25rem] lg:[--arrow-h:3.5rem] ${className}`.trim()}
       role="region"
       aria-roledescription="carousel"
       aria-label="Tuyệt tác không gian"
