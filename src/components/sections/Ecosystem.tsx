@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ContactCtaLink } from "@/components/lead/ContactCtaLink";
 import { Section } from "@/components/ui/Section";
 import { ctaNames } from "@/lib/leads/ctaNames";
+import { MapLightBeam } from "./MapLightBeam";
 import { map, mapAssets, mapCopy } from "./mapContent";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -46,6 +47,32 @@ const timePopVariants = {
     transition: { duration: 0.5, ease },
   },
 };
+
+function MapStage({
+  className = "",
+  imageClassName,
+  align,
+}: {
+  className?: string;
+  imageClassName: string;
+  align: "left-top" | "center";
+}) {
+  return (
+    <div className={`relative ${className}`.trim()}>
+      <Image
+        src={mapAssets.map}
+        alt="Bản đồ vị trí The Collectors"
+        width={2500}
+        height={1500}
+        className={imageClassName}
+        sizes={align === "left-top" ? "(max-width: 1024px) 100vw, 80vw" : "100vw"}
+        unoptimized
+        priority={false}
+      />
+      <MapLightBeam align={align} />
+    </div>
+  );
+}
 
 export function Ecosystem() {
   return (
@@ -96,15 +123,10 @@ export function Ecosystem() {
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, delay: 0.1, ease }}
         >
-          <Image
-            src={mapAssets.map}
-            alt="Bản đồ vị trí The Collectors"
-            width={1272}
-            height={633}
-            className="h-full w-full object-contain object-left-top"
-            sizes="(max-width: 1024px) 100vw, 80vw"
-            quality={75}
-            priority={false}
+          <MapStage
+            className="h-full w-full"
+            imageClassName="h-full w-full object-contain object-left-top"
+            align="left-top"
           />
         </motion.div>
 
@@ -176,13 +198,10 @@ export function Ecosystem() {
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, delay: 0.1, ease }}
         >
-          <Image
-            src={mapAssets.map}
-            alt="Bản đồ vị trí The Collectors"
-            width={1272}
-            height={633}
-            className="h-auto w-full object-contain md:h-full md:max-h-[48vh]"
-            sizes="100vw"
+          <MapStage
+            className="w-full md:h-full"
+            imageClassName="h-auto w-full object-contain md:h-full md:max-h-[48vh]"
+            align="center"
           />
         </motion.div>
 

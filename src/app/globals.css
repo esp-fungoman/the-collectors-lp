@@ -112,3 +112,53 @@ body {
   -webkit-box-shadow: 0 0 0 1000px rgba(20, 7, 0, 0.95) inset !important;
 }
 
+/* Ecosystem map — light-beam (stroke dash), from thecollectors.vn map1 */
+.map-light-beam__line,
+.map-light-beam__line2 {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter:
+    drop-shadow(0 0 4px rgba(255, 111, 64, 0.8))
+    drop-shadow(0 0 10px rgba(255, 111, 64, 0.4));
+}
+
+.map-light-beam__line {
+  stroke-dasharray: 500 2000;
+  animation: map-light-beam 4s infinite linear;
+}
+
+.map-light-beam__line2 {
+  stroke-dasharray: 150 1000;
+  animation: map-light-beam-2 3s infinite linear;
+}
+
+@keyframes map-light-beam {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: -550;
+  }
+}
+
+@keyframes map-light-beam-2 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: -200;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-light-beam__line,
+  .map-light-beam__line2 {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+}
+
